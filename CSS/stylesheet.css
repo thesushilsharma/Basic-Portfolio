@@ -1,0 +1,179 @@
+html,body,div,footer,nav
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+body {
+	line-height: 1;
+}
+
+body{
+	border-style:solid;
+	border-collapse:collapse;
+	border-radius:5px;
+	margin-top:2.5px;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.infoBack{
+	background-color:rgba(255, 255, 255,0.8);
+	border-radius:30px;
+}
+.title{
+	font-family:"arial";
+	float:center;
+	text-align:center;
+	border-radius:30px;
+	margin-top:15px;
+	text-align:center;
+	background-color:rgba(255, 255, 255,0.8);
+	line-height:60px;
+	position:relative;
+	width:24%;
+}
+h1{
+	font-family:"arial";
+	float:center;
+	text-align:center;
+
+}
+ol, ul {
+	list-style: none;
+}
+
+#navBar {
+	overflow: hidden;
+	background-color: #333;
+}
+
+#navBar a {
+	float: left;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+#navBar a:hover {
+	color: red;
+}
+
+#navBar a:hover:not(.active) {
+	background-color: #111;
+  }
+  
+.active {
+	background-color: red;
+  }
+.subnav {
+	float: left;
+	overflow: hidden;
+  }
+  
+.subnav .subnavbtn {
+	font-size: 16px;  
+	border: none;
+	outline: none;
+	color:lime;
+	padding: 14px 16px;
+	background-color: inherit;
+	font-family: inherit;
+	
+  }
+ 
+.subnav-content {
+  display: none;
+  position: absolute;
+  background-color: blue;
+  width: 15%;
+}
+
+.subnav-content a {
+  float: left;
+  color: white;
+  
+}
+
+.subnav:hover .subnavbtn  {
+	background-color: black;
+	color: red;
+}
+
+.subnav:hover .subnav-content {
+  display: block;
+}
+
+.avatar {
+	vertical-align: middle;
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	position: absolute;
+    top: 50%;
+   left: 50%;
+  transform: translate(-50%, -50%);
+  }
+
+  footer { 
+	  display: block;
+width: 100%;
+text-align: center;
+display: flex;
+background-color: #f5f5f5;
+color: darkcyan;
+cursor: default;
+position: relative;
+margin: 0 auto;
+
+  }
+  footer a {
+	color: lime;
+	
+  }
+  .social{
+	display: flex;
+	flex-direction: row;
+  justify-content: center;
+ }
+
+ #copyright {
+	position: relative;
+	color: black;
+	cursor: default;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 0.8rem;
+	font-weight: 900;
+	letter-spacing: 0.075em;
+	line-height: 1.5;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.container {
+  width: 100%;
+  background-color: #ddd;
+}
+
+.skills {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.html {width: 90%; background-color: green;}
+.css {width: 95%; background-color: blue;}
+.js {width: 85%; background-color: red;}
+.cpp {width: 77%; background-color: black;}
+.java {width: 65%; background-color: yellow;}
+.wordpress {width: 87%; background-color: purple;}
+.sql {width: 87%; background-color: grey;}
+

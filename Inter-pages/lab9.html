@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sushil Sharma</title>
+			</head>
+			<script>
+  function myFunction(){
+					var k = document.getElementById("userinput").value;
+            for(j= 1; j< 11; j++)
+            {
+             document.write(k+" X "+ j + " = " + k*j+ "<br>");
+            }
+}
+				</script>
+				<body>
+					<form action="/action_page.php" onsubmit="return myFunction()">
+          <label for="userinput">Value (from 1 to 10):</label>
+						<input type="number" id="userinput" name="userinput"  min="1" max="10">
+							<br>
+								<input type="submit" value="Submit">
+								</form>
+							</body>
+						</html>

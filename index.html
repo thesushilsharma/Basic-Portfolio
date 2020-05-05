@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Sushil Portfolio </title>
+    <link rel="stylesheet" href="CSS/stylesheet.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="Javascript/script.js"></script>
+
+</head>
+
+<body href="CSS/stylesheet.css" style="background: linear-gradient(to bottom right, #33ccff 0%, #ff99cc 100%);">
+    <nav id="navBar">
+        <a class="active" href="main.html">Home</a>
+        <a href="Inter-pages/AboutMePage.html">About Me</a>
+        <a href="Inter-pages/PicturePage.html">Pictures</a>
+        <div class="subnav">
+            <button class="subnavbtn">CV </button>
+            <div class="subnav-content">
+                <a href="XML/tutorial9.xml">CV</a>
+                <a href="Inter-pages/index.html">Bussiness Card</a>
+            </div>
+        </div>
+        <a href="Inter-pages/MyProgramming.html"> My Programming </a>
+    </nav>
+    <marquee behavior="scroll" direction="right">
+        <h1 class="title" style="margin-left:38%;"> My Profile</h1>
+    </marquee>
+    <table width="100%" style="margin-top:-8px">
+        <tr>
+            <td>
+                <div style="padding:15px 15px;font-size:30px;margin-top:8px;font-family:arial;">
+                    <section>
+                        <img class="mypics"
+                            src="https://images.pexels.com/photos/2457290/pexels-photo-2457290.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            style="width:100%">
+                        <img class="mypics"
+                            src="https://images.pexels.com/photos/2249527/pexels-photo-2249527.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            style="width:100%">
+                        <img class="mypics"
+                            src="https://images.pexels.com/photos/2318025/pexels-photo-2318025.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            style="width:100%">
+                    </section>
+                    <div style="margin-top:-550px;margin-bottom:200px;">
+                        <img src="https://scontent.fauh1-1.fna.fbcdn.net/v/t1.0-1/c0.16.160.160a/p160x160/69911237_1273070172862751_4164498584823136256_o.jpg?_nc_cat=108&_nc_ohc=sbltxe21LU8AQnEkip6OcsqEBNngZpp2zWlKv0WAQmkoC0S8viMd1s-xw&_nc_ht=scontent.fauh1-1.fna&oh=f7cdc9d9771ec7e437635c3f3d31c95e&oe=5E72903D"
+                            class="avatar" />
+
+                    </div>
+                    <h1 class="major">Hello, this is<br>Sushil Sharma</h1>
+                    <h2 style="text-align: center;margin-bottom: 300px;"> Ambivert (Programmer) </h2>
+
+
+                    <p style="text-align: center;"> You Know Who I am</p>
+                    <p class="infoBack" style="padding-left:15px;margin-right:93%;line-height:45px;"> Intro </p>
+                    <p class="infoBack"
+                        style="margin-right:20%;margin-left:180px;padding:15px 15px;font-size:20px;margin-top:30px;font-family:arial;">
+                        This website was completely made by me to show what I've learnt in CSIT128 and not wasn't made
+                        using downloaded templates found online.<br>
+                        From w3schools, UOW CSIT128, Wikipedia, Stack Overflow
+                        <br>Computer Science Student<br>
+                        General Member (Student Representive Council)
+                    </p>
+                    <br>
+                    <center>
+                        <table class="infoBack" style="padding: 15px 15px 15px 15px;">
+                            <tr>
+                                <ul id="comments"></ul>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" id="topic" name="topic" placeholder="E-Mail" style="padding: 12px 50px;
+                                margin: 8px 0;width: 20%;
+                                border: 3px solid lightgrey;
+                                outline: none;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <textarea rows="5" cols="50" name="note" id="note" placeholder="Comments" style=" width: 100%;
+                                    height: 150px;
+                                    padding: 12px 20px;
+                                    box-sizing: border-box;
+                                    border: 2px solid #ccc;
+                                    border-radius: 4px;
+                                    background-color: #f8f8f8;
+                                    resize: none;"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><button type="button" onclick="createTicket()" style=" padding: 12px 20px;
+                                margin: 8px 0;background-color: black;border: none;color: white;cursor: pointer;">Post
+                                        Comment</button>
+                                    <button type="button" onclick="clearDatabase()" style=" padding: 12px 20px;
+                                margin: 8px 0;background-color: black;border: none;color: white;cursor: pointer;">Clear
+                                        Comments</button>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </center>
+                    <p class="infoBack" style="padding-left:15px;margin-right:86%;line-height:45px;"> Comments:</p>
+                    <div id="OutputSection" class="infoBack"
+                        style="font-size:12px;margin-right:80%;padding:15px 15px 15px 15px;">
+                        <p></p>
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+
+        window.onload = carousel();
+
+        function createTicket() {
+            var topic = document.getElementById("topic").value;
+            var note = document.getElementById("note").value;
+            var validation = /^([^@\s]+@[^@\s]+\.[^@\s]+)$/;
+
+            if (validation.test(topic)) {
+
+                db.transaction(function (tx) {
+                    tx.executeSql(`INSERT INTO FEEDBACK VALUES("${topic}", "${note}")`);
+                });
+                createNewNote(topic, note);
+            }
+            else
+                alert("Incorrect email format.");
+        }
+
+        function createNewNote(topic, note) {
+            var paragraph = document.createElement("p");
+            paragraph.innerHTML = `${topic}<br>${note}<br><br>`;
+            document.getElementById("OutputSection").appendChild(paragraph);
+        }
+
+        function clearDatabase() {
+            document.getElementById("OutputSection").innerHTML = " ";
+            db.transaction(function (tx) {
+                tx.executeSql("DROP TABLE IF EXISTS FEEDBACK");
+                tx.executeSql("CREATE TABLE IF NOT EXISTS FEEDBACK(topic TEXT, note VARCHAR)");
+            });
+
+        }
+    </script>
+    <script>
+        var db = openDatabase("mydb", "1.0", "HTML LAB 11", 5 * 1024 * 1024);
+
+        db.transaction(function (tx) {
+            tx.executeSql("CREATE TABLE IF NOT EXISTS FEEDBACK(topic TEXT, note VARCHAR)");
+        })
+
+        db.transaction(function (tx) {
+            tx.executeSql('SELECT * FROM FEEDBACK', [], function (tx, results) {
+                var len = results.rows.length, i;
+
+                for (i = 0; i < len; i++) {
+                    msg = "<p><b>" + results.rows.item(i).topic + "</b><br>" + results.rows.item(i).note + "</p>";
+                    document.querySelector('#OutputSection').innerHTML += msg;
+                }
+            }, null);
+        });
+
+    </script>
+
+</body>
+<footer>
+    <section >
+        <section >
+            <h3>Address</h3>
+            <p>1234 Somewhere Road #87257<br />
+                Land, Earth 00000-0000</p>
+        </section>
+        <section>
+            <h3>Phone</h3>
+            <p><a href="tel:123-456-7890">123-456-7890</a></p>
+        </section>
+        <section>
+            <h3>Email</h3>
+            <p><a href="mailto:sharmasushil055@gmail.com">Sushil Sharma</a>.</p>
+        </section>
+        <section>
+            <h3>Social</h3>
+            <p class="social"><a href="https://www.facebook.com/Adisushi"><img src="Images/facebook.png"
+                        height="32px" />
+                </a>
+                <a href="https://www.instagram.com/adisushi"><img src="Images/instagram.png" height="32px" />
+                </a>
+                <a href="https://www.twitter.com/adisushi"><img src="Images/twitter.png" height="32px" />
+                </a>
+                <a href="https://www.linkedin.com/in/thesushilsharma"><img src="Images/linkedin.png" height="32px" />
+                </a>
+            </p>
+        </section>
+    </section>
+</footer>
+<div id="copyright">
+    <ul>
+        <li>&copy; Sushil </li>
+        <li>Develop: <a href="#">Sushil Sharma</a></li>
+    </ul>
+</div>
+
+</html>
